@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 'go.mod'
+      - uses: golangci/golangci-lint-action@v8
+        with:
+          version: 'latest'
+      - uses: stoplightio/spectral-action@latest
+        with:
+          file_glob: 'docs/api.yaml'
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: 'go.mod'
+      - run: go mod download
+      - run: go build -o go-template
