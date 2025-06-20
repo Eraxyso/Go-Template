@@ -1,4 +1,4 @@
-# go-template
+# Go-Template
 
 A backend template for Golang using [oapi-codegen](https://github.com/oapi-codegen/oapi-codegen).
 
