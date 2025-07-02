@@ -53,9 +53,9 @@ func (mr *middlewareRouter) getMiddlewares(method string, path string) []echo.Mi
 
 func (mr *middlewareRouter) registerMiddlewares(next echo.HandlerFunc) echo.HandlerFunc {
 	return func(c echo.Context) error {
-		path := c.Path()
 		method := c.Request().Method
-		middlewares := mr.getMiddlewares(path, method)
+		path := c.Path()
+		middlewares := mr.getMiddlewares(method, path)
 		for i := len(middlewares) - 1; i >= 0; i-- {
 			next = middlewares[i](next)
 		}
