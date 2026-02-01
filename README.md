@@ -2,7 +2,7 @@
 
 A backend template for Golang using [oapi-codegen](https://github.com/oapi-codegen/oapi-codegen).
 
-**When the `docs/api.yaml` is changed, please run `./scripts/oapi-codegen.go` to update the generated files.**
+**When the `docs/api.yaml` is changed, please run `./scripts/oapi-codegen.sh` to update the generated files.**
 
 ---
 
