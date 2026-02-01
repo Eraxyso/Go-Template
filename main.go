@@ -56,7 +56,7 @@ func main() {
 
 	e.Use(mr.registerMiddlewares)
 
-	api.RegisterHandlers(e, server)
+	api.RegisterHandlersWithBaseURL(e, server, "/api")
 
 	port, exists := os.LookupEnv("PORT")
 	if !exists {
